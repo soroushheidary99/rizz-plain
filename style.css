@@ -38,6 +38,7 @@ input {
 h1, h2, h3, h4, h5, h6 { 
   padding: 10px 10px 10px 10px;
   text-align: center;
+  user-select: none;
 }
 
 #noBtn {
@@ -53,6 +54,10 @@ h1, h2, h3, h4, h5, h6 {
 #yesBtn:hover {
   background-color: rgb(86, 255, 92);
   transform: scale(1.3);
+}
+#noBtn:hover {
+  background-color: rgb(255, 86, 86);
+  transform: scale(0.8);
 }
 
 #questionContainer { 
