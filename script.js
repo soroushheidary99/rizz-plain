@@ -1,37 +1,38 @@
-// document.getElementById('yes').addEventListener('mouseover', function() {
-//     document.getElementById('question').textContent = "Happy Soroush Noises *-*";
-// });
+// path/filename: script.js
+const messages = [
+  "Oops, missclicked!", 
+  "Thanks but no thanks", 
+  "No but actually Yes"
+];
+let opacity = 1;
 
-// document.getElementById('yes').addEventListener('mouseleave', function() {
-//     document.getElementById('question').textContent = "will u go out with me?";
-// });
-
-// document.getElementById('no').addEventListener('mouseover', function() {
-//     document.getElementById('question').textContent = "Sad Soroush Noises T-T";
-// });
-
-// document.getElementById('no').addEventListener('mouseleave', function() {
-//     document.getElementById('question').textContent = "will u go out with me?";
-// });
-
-document.getElementById('no').addEventListener('click', function(event) {
-    const noButton = event.target;
-    const newX = Math.random() * window.innerWidth * 0.8;
-    const newY = Math.random() * window.innerHeight * 0.8;
-    noButton.style.position = 'fixed';
-    noButton.style.left = `${newX}px`;
-    noButton.style.top = `${newY}px`;
-    // Shrink the button by reducing its font size and padding
-    noButton.style.width = (parseFloat(getComputedStyle(noButton).width) * 0.7) + "px";
-    noButton.style.height = (parseFloat(getComputedStyle(noButton).height) * 0.8) + "px";
-    noButton.style.padding = (parseFloat(getComputedStyle(noButton).padding) * 0.8) + "px";
-    noButton.style.fontSize = (parseFloat(getComputedStyle(noButton).fontSize) * 0.8) + "px";
+document.getElementById('yesBtn').addEventListener('click', function() {
+  document.getElementById('questionContainer').style.display = 'none';
+  document.getElementById('inputContainer').style.display = 'flex';
 });
 
+document.getElementById('noBtn').addEventListener('click', function(event) {
+  const noButton = event.target;
+  const maxX = window.innerWidth - noButton.offsetWidth;
+  const maxY = window.innerHeight - noButton.offsetHeight;
+  const randomX = Math.random() * maxX;
+  const randomY = Math.random() * maxY;
+  noButton.style.position = 'fixed';
+  noButton.style.left = `${randomX}px`;
+  noButton.style.top = `${randomY}px`;
+  
+  const randomMessageIndex = Math.floor(Math.random() * messages.length);
+  this.textContent = messages[randomMessageIndex];  
+  opacity -= 0.2;
+  noButton.style.opacity = opacity.toString();
+  if (opacity <= .21) {
+    // this.disabled = true;
+    document.getElementById('yesBtn').textContent = "Just say yes for god's sake";
+  }
+});
 
-document.getElementById('yes').addEventListener('click', function() {
-    document.getElementById('question').textContent = "Glad you're in love with me :D please enter your phone number and prefered day for a date";
-    document.getElementById('question').style.backgroundColor = "rgb(121, 0, 0)";
-    document.getElementById('question').style.color = "rgb(255, 255, 255)";
-    document.getElementById('yes').removeEventListener()
+document.getElementById('submitBtn').addEventListener('click', function(event) {
+  this.style.backgroundColor = "rgb(86, 255, 92)"
+  this.textContent = "U're not gonna regret it love :D";
+  this.disabled = true;
 });

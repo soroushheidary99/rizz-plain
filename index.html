@@ -1,17 +1,31 @@
+<!-- path/filename: index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposal</title>
+    <title>Special Question</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <p id="question">Dear Yasaman *don't know your last name yet*, will u go on a date with me</p>
-        <button id="yes">Hell YES!</button>
-        <button id="no">NO!</button>
+    <div id="questionContainer">
+        <h1>Dear Yasaman The Manager Lady</h1>
+        <img src="please.gif" aly="w8 it's gonna load soon" id="pleaseImg">
+        <h2>Will you go out on a date with me?</h2>
+        <div id="choicesContainer">
+            <button id="yesBtn">Hell YES!!!</button>
+            <button id="noBtn">ew, no</button>
+        </div>
     </div>
+    <div id="inputContainer" hidden>
+        <img src="thanks.gif" aly="w8 it's gonna load soon" id="pleaseImg">
+        <h2>Happy you're in love with me</h2>
+        <h3>Please Fill In These</h3>
+        <input type="tel" id="phoneInput" placeholder="Your Phone Number">
+        <input type="text" id="dateInput" placeholder="Preference On The Date">
+        <button id="submitBtn">Submit</button>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
